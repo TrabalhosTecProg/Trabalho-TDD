@@ -13,11 +13,11 @@ import java.util.Collection;
 @RunWith(Parameterized.class)
 public class RendimentoValorInvalidoTest {
 
-    Double tValor;
+    Double valorRendimentoInvalido;
     private Rendimento rendimento;
 
    public RendimentoValorInvalidoTest(Double tValor) {
-       this.tValor = tValor;
+       this.valorRendimentoInvalido = tValor;
    }
 
     @Before
@@ -32,13 +32,12 @@ public class RendimentoValorInvalidoTest {
        params.add(-1.0D);
        params.add(-0.0D);
        params.add(Double.MAX_VALUE);
-       params.add(Double.MIN_VALUE);
 
        return params;
     }
 
     @Test(expected = ValorRendimentoInvalidoException.class)
-    public void verificarDescricaoEmBranco() throws ValorRendimentoInvalidoException {
-        rendimento.setValor(this.tValor);
+    public void verificarValorInvalido() throws ValorRendimentoInvalidoException {
+        rendimento.setValor(this.valorRendimentoInvalido);
     }
 }

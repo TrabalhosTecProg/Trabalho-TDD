@@ -9,7 +9,9 @@ public class Rendimento {
    
    public Rendimento(){}
 
-
+    private Boolean isLimiteValido(Double valor) {
+       return (valor > 0.0D || valor < Double.MAX_VALUE);
+    }
 
     public String getDescricao() {
         return descricao;
@@ -20,13 +22,19 @@ public class Rendimento {
     }
 
     public void setDescricao(String descricao) throws DescricaoEmBrancoException {
-        if (descricao.isEmpty()) 
+        if (descricao.isBlank() || descricao.isEmpty() )
             throw new DescricaoEmBrancoException(
                 "Descrição não pode estar em branco!"); 
        this.descricao = descricao;
    }
+
     public void setValor(double valor) throws ValorRendimentoInvalidoException {
-        this.valor=valor;
-        throw new ValorRendimentoInvalidoException("Valores negativos ou maiores do que INF são inválidos");
+       if (isLimiteValido(valor)) {
+           this.valor = valor;
+       }
+       else {
+           throw new ValorRendimentoInvalidoException(
+                   "Valores negativos ou maiores do que INF são inválidos");
+       }
     }
 }
