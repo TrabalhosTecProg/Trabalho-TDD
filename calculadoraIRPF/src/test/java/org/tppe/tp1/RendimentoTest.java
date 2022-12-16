@@ -1,5 +1,6 @@
 package org.tppe.tp1;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 import org.junit.Before;
@@ -19,5 +20,13 @@ public class RendimentoTest {
     public void descricaoEmBrancoTest() throws DescricaoEmBrancoException{
         rendimento.setDescricao("");
         rendimento.setValor(123.00F);
+    }
+
+    @Test
+    public void verificaDescricaoCadastrada() throws DescricaoEmBrancoException{
+        final String descricaoCadastrada = "Aluguel";
+        rendimento.setDescricao(descricaoCadastrada);
+
+        assertEquals(rendimento.getDescricao(), descricaoCadastrada);
     }
 }

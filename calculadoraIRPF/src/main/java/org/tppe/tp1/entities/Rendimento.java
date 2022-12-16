@@ -8,14 +8,23 @@ public class Rendimento {
    
    public Rendimento(){}
 
-   public double setValor(double valor) {
-        return 0.0;
-   }
 
-   public void setDescricao(String descricao) throws DescricaoEmBrancoException {
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setDescricao(String descricao) throws DescricaoEmBrancoException {
         if (descricao.isEmpty()) 
             throw new DescricaoEmBrancoException(
                 "Descrição não pode estar em branco!"); 
-        
+       this.descricao = descricao;
    }
+    public void setValor(double valor) {
+        this.valor=valor;
+    }
 }
