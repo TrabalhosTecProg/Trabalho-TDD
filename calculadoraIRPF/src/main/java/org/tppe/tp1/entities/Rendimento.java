@@ -1,6 +1,7 @@
 package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorRendimentoInvalidoException;
 
 public class Rendimento {
    private String descricao;
@@ -24,7 +25,8 @@ public class Rendimento {
                 "Descrição não pode estar em branco!"); 
        this.descricao = descricao;
    }
-    public void setValor(double valor) {
+    public void setValor(double valor) throws ValorRendimentoInvalidoException {
         this.valor=valor;
+        throw new ValorRendimentoInvalidoException("Valores negativos ou maiores do que INF são inválidos");
     }
 }
