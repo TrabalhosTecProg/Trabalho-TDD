@@ -20,9 +20,10 @@ public class Dependente {
 	}
 
 	public void setNome(String nome) throws NomeEmBrancoException {
-		 if (nome.isBlank()) 
+		 if (nome==null||nome.isEmpty() || nome.isBlank()) 
 	            throw new NomeEmBrancoException(
 	                "Nome de dependente não pode estar em branco!"); 
+		 this.nome= nome;
 	}
 
 	public LocalDate getData() {

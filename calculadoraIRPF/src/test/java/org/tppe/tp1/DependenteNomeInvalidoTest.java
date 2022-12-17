@@ -18,6 +18,10 @@ public class DependenteNomeInvalidoTest {
 	        dependente.setNome("");
 	        dependente.setData(LocalDate.of(2018, 07, 22));
 	    }
-
+	@Test(expected = NomeEmBrancoException.class)
+	public void NomeVazioTest() throws NomeEmBrancoException{
+        dependente.setNome(null); // esse falhou e na classe foi adicionada a cláusula de vazio
+        dependente.setData(LocalDate.of(2020, 07, 22));
+    }
 
 }
