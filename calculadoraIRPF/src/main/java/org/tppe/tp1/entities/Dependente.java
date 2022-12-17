@@ -1,6 +1,9 @@
 package org.tppe.tp1.entities;
 import java.time.LocalDate;
 
+import org.tppe.tp1.exceptions.NomeEmBrancoException;
+
+
 public class Dependente {
 	
 	private String nome;	
@@ -16,9 +19,10 @@ public class Dependente {
 		return nome;
 	}
 
-	public void setNome(String nome){
-
-		this.nome = nome;
+	public void setNome(String nome) throws NomeEmBrancoException {
+		 if (nome.isBlank()) 
+	            throw new NomeEmBrancoException(
+	                "Nome de dependente não pode estar em branco!"); 
 	}
 
 	public LocalDate getData() {
