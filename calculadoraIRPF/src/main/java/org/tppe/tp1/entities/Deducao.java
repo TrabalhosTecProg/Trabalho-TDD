@@ -1,6 +1,7 @@
 package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
 
 public class Deducao {
 	private String descricao;	
@@ -27,7 +28,15 @@ public class Deducao {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(double valor)  throws ValorDeducaoInvalidoException{
+		if (!(isLimiteValido(valor))) {
+	        throw new ValorDeducaoInvalidoException(
+	                   "Valores negativos ou maiores do que INF são inválidos");
+	    }
 		this.valor = valor;
+	}
+	
+	private Boolean isLimiteValido(Double valor) {
+	       return (valor > 0.0D && valor < Double.MAX_VALUE);
 	}
 }
