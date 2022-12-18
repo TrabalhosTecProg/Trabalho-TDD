@@ -1,6 +1,7 @@
 package org.tppe.tp1.usecases;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,36 +15,22 @@ public class CadastrarContribuicao {
 	
 	
 	List<ContribuicaoPrevidenciaria> contribuicoes;
-	public ContribuicaoPrevidenciaria c= new ContribuicaoPrevidenciaria();
+	public double totalContribuicao;
 	
-  public CadastrarContribuicao() {
-      this.contribuicoes = new ArrayList<>();
-
-  }
-  public void add(ContribuicaoPrevidenciaria contribuicao) {
-      this.contribuicoes.add(contribuicao);
+	public CadastrarContribuicao() {
+		contribuicoes= new LinkedList<ContribuicaoPrevidenciaria>();
+	}
+	
+  public void add( String descricao, double valor) {
+		ContribuicaoPrevidenciaria c= new ContribuicaoPrevidenciaria(descricao, valor);
+		this.contribuicoes.add(c);
+		totalContribuicao= totalContribuicao+ valor;
+  
   }
 
   
-
-	public void add (String descricao, Double valor) throws CadastroInvalidoException{
-        Optional<ContribuicaoPrevidenciaria> created = createContribuicao(descricao, valor);
-        if(created.isPresent()) {
-            add(created.get());
-        } else {
-            throw new CadastroInvalidoException("Utilize parâmetros válidos para cadastro de contribuicao");
-        }
-    }
-	
-	
-	
-	private Optional<ContribuicaoPrevidenciaria> createContribuicao(String descricao, Double valor) {
-		 this.c.setDescricao(descricao);
-         this.c.setValor(valor);
-         return Optional.of(c);
-	}
 	public double getTotalContribuicao() {
-		return this.c.getValor();
+		return this.totalContribuicao;
 	}
 
 	
