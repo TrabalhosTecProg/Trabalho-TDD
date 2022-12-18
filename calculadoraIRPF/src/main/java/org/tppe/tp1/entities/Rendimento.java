@@ -10,7 +10,7 @@ public class Rendimento {
    public Rendimento(){}
 
     private Boolean isLimiteValido(Double valor) {
-       return (valor > 0.0D || valor < Double.MAX_VALUE);
+       return (valor > 0.0D && valor < Double.MAX_VALUE);
     }
 
     public String getDescricao() {
