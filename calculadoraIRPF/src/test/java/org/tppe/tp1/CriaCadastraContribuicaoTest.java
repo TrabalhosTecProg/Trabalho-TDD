@@ -13,7 +13,6 @@ import org.junit.runners.Parameterized.Parameters;
 import org.tppe.tp1.exceptions.CadastroInvalidoException;
 import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
 import org.tppe.tp1.exceptions.ValorContribuicaoInvalidoException;
-import org.tppe.tp1.exceptions.ValorRendimentoInvalidoException;
 import org.tppe.tp1.usecases.CadastrarContribuicao;
 
 @RunWith(Parameterized.class)
@@ -55,9 +54,9 @@ public class CriaCadastraContribuicaoTest {
 
     @Test
      public void CadastroContribuicaoTest() throws DescricaoEmBrancoException, ValorContribuicaoInvalidoException {
-    	contribuicaoPrevidencia= new CadastrarContribuicao();
+    	
     	for(Object[] c:contribuicoes) {
-    		//CadastrarContribuicao contribuicaoPrevidencia= new CadastrarContribuicao();
+    		
     		contribuicaoPrevidencia.add((String)c[0], (double)c[1]);
     	}
     	assertEquals(valoresCorretos, contribuicaoPrevidencia.getTotalContribuicao(),0);
