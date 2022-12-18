@@ -18,6 +18,13 @@ class CriaCadastraContribuicaoTest {
 		contribuicaoPrevidencia.add("INSS", 30.00);
 		assertEquals(30.00, contribuicaoPrevidencia.getTotalContribuicao(), 0);
 	}
-	
+	@Test
+	void testCadastroDuasContribuicoes() throws CadastroInvalidoException {
+		
+		contribuicaoPrevidencia= new CadastrarContribuicao();
+		contribuicaoPrevidencia.add("INSS", 30.00);
+		contribuicaoPrevidencia.add("INSS", 300.00);
+		assertEquals(330.00, contribuicaoPrevidencia.getTotalContribuicao(), 0);
+	}
 
 }
