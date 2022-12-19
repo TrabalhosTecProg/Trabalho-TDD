@@ -5,12 +5,17 @@ import org.junit.Test;
 import java.time.LocalDate;
 import org.tppe.tp1.entities.Dependente;
 import org.tppe.tp1.exceptions.NomeEmBrancoException;
+import org.tppe.tp1.usecases.CadastroDependente;
 
 public class DependenteNomeInvalidoTest {
 	private Dependente dependente;
+	
+	private CadastroDependente cadastroDependentes;
+	
 	@Before
 	public void setup() {
 		this.dependente= new Dependente();
+		this.cadastroDependentes= new CadastroDependente();
 	}
 	
 	@Test(expected = NomeEmBrancoException.class)
@@ -24,4 +29,12 @@ public class DependenteNomeInvalidoTest {
         dependente.setData(LocalDate.of(2020, 07, 22));
     }
 
+	// testar no cadastro
+	@Test(expected = NomeEmBrancoException.class)
+	public void NomeEmBrancoCadastro() throws NomeEmBrancoException{
+		cadastroDependentes.add(" ", LocalDate.of(2020, 07, 22));
+      
+    }
+	
+	
 }
