@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.tppe.tp1.entities.Pensao;
+import org.tppe.tp1.exceptions.ValorPensaoInvalidoException;
 import org.tppe.tp1.usecases.CadastrarPensao;
 
 @RunWith(Parameterized.class)
@@ -50,7 +51,7 @@ public class CriaCadastroPensaoTest {
     }
 	
 	@Test
-	public void cadastrarPensao() {
+	public void cadastrarPensao() throws ValorPensaoInvalidoException {
 		for(Object[] p:pensoes) {
 			Pensao temp_p = new Pensao();
 			temp_p.setValor((double)p[1]);
