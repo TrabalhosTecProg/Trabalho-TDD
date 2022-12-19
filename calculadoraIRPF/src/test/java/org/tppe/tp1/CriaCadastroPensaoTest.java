@@ -18,35 +18,46 @@ public class CriaCadastroPensaoTest {
 	CadastrarPensao pensao;
 	Object[][] pensoes;
 	double valoresCorretos;
-	
+
 	@Before
-	public void setup() {
-		pensao = new CadastrarPensao();
+	public void setup(){
+		pensao= new CadastrarPensao();
+	}
+
+	public CriaCadastroPensaoTest(Object[][] pensoes, double valoresCorretos) {
+		this.pensoes= pensoes;
+		this.valoresCorretos= valoresCorretos;
 	}
 	
-	public CriaCadastroPensaoTest(Object[][] pensoes, double valoresCorretos) {
-		this.pensoes = pensoes;
-		this.valoresCorretos = valoresCorretos;
-		
-	}
 	@Parameters
     public static Collection<Object[]> getParametros() {
         Object[][] valorEsperado= new Object[][] {
         	{new Object[][] {
-        		{30.00}
+        		{"INSS", 30.00}
         		}, 30.00},
         	{new Object[][] {
-        		{30.00},
-        		{300.00}
+        		{"INSS", 30.00},
+        		{"Previdencia Privada", 300.00}
         		}, 330.00},
         	{new Object[][] {
-        		{30.00},
-        		{300.00},
-            	{50.00}
+        		{"INSS", 30.00},
+        		{"Previdencia Privada", 300.00},
+            	{"Contracheque", 50.00}
             		}, 380.00}
         };
-        return Arrays.asList(valorEsperado);
+        	return Arrays.asList(valorEsperado);
 
+    }
+
+    @Test
+     public void CadastroContribuicaoTest() {
+    	pensao= new CadastrarPensao();
+    	for(Object[] c:pensoes) {
+    		//CadastrarPensao pensao= new CadastrarPensao();
+    		Pensao p = new Pensao((double)c[1]);
+    		pensao.addPensao(p);
+    	}
+    	assertEquals(valoresCorretos, pensao.getTotalPensao(),0);
     }
 	
 	@Test
