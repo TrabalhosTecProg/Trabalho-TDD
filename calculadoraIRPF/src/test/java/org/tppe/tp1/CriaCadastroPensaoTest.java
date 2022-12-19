@@ -2,12 +2,64 @@ package org.tppe.tp1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import org.tppe.tp1.entities.Pensao;
 import org.tppe.tp1.usecases.CadastrarPensao;
 
+@RunWith(Parameterized.class)
 class CriaCadastroPensaoTest {
+	CadastrarPensao pensao;
+	Object[][] pensoes;
+	double valoresCorretos;
+	
+	@Before
+	public void setup() {
+		pensao = new CadastrarPensao();
+	}
+	
+	public CriaCadastroPensaoTest(Object[][] pensoes, double valoresCorretos) {
+		this.pensoes = pensoes;
+		this.valoresCorretos = valoresCorretos;
+		
+	}
+	@Parameters
+    public static Collection<Object[]> getParametros() {
+        Object[][] valorEsperado= new Object[][] {
+        	{new Object[][] {
+        		{1000.00}
+        		}, 1000.00},
+        	{new Object[][] {
+        		{1000.00},
+        		{1000.00}
+        		}, 2000.00},
+        	{new Object[][] {
+        		{3000.00},
+        		{3000.00},
+            	{5000.00}
+            		}, 11000.00}
+        };
+        return Arrays.asList(valorEsperado);
 
+    }
+	
+	@Test
+	void cadastrarPensao() {
+		for(Object[] p:pensoes) {
+			Pensao temp_p = new Pensao();
+			temp_p.setValor((double)p[1]);
+			pensao.addPensao(temp_p);
+    	}
+    	assertEquals(valoresCorretos, pensao.getTotalPensao());
+	}
+	
+	/*
 	@Test
 	void cadastrarUmaPensao() {
 		CadastrarPensao cadastroPensao = new CadastrarPensao();
@@ -48,6 +100,6 @@ class CriaCadastroPensaoTest {
 		
 		
 		assertEquals(5000.00D, cadastroPensao.getTotalPensao());
-	}
+	}*/
 
 }
