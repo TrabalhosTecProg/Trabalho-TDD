@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -14,7 +14,7 @@ import org.tppe.tp1.entities.Pensao;
 import org.tppe.tp1.usecases.CadastrarPensao;
 
 @RunWith(Parameterized.class)
-class CriaCadastroPensaoTest {
+public class CriaCadastroPensaoTest {
 	CadastrarPensao pensao;
 	Object[][] pensoes;
 	double valoresCorretos;
@@ -33,30 +33,30 @@ class CriaCadastroPensaoTest {
     public static Collection<Object[]> getParametros() {
         Object[][] valorEsperado= new Object[][] {
         	{new Object[][] {
-        		{1000.00}
-        		}, 1000.00},
+        		{30.00}
+        		}, 30.00},
         	{new Object[][] {
-        		{1000.00},
-        		{1000.00}
-        		}, 2000.00},
+        		{30.00},
+        		{300.00}
+        		}, 330.00},
         	{new Object[][] {
-        		{3000.00},
-        		{3000.00},
-            	{5000.00}
-            		}, 11000.00}
+        		{30.00},
+        		{300.00},
+            	{50.00}
+            		}, 380.00}
         };
         return Arrays.asList(valorEsperado);
 
     }
 	
 	@Test
-	void cadastrarPensao() {
+	public void cadastrarPensao() {
 		for(Object[] p:pensoes) {
 			Pensao temp_p = new Pensao();
 			temp_p.setValor((double)p[1]);
 			pensao.addPensao(temp_p);
     	}
-    	assertEquals(valoresCorretos, pensao.getTotalPensao());
+    	assertEquals(valoresCorretos, pensao.getTotalPensao(), 0);
 	}
 	
 	/*
