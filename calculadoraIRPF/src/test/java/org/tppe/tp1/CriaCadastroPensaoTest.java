@@ -16,5 +16,19 @@ class CriaCadastroPensaoTest {
 		cadastroPensao.addPensao(pensao);
 		assertEquals(1000.00D, cadastroPensao.getTotalPensao());
 	}
+	
+	@Test
+	void cadastrarDuasPensões() {
+		CadastrarPensao cadastroPensao = new CadastrarPensao();
+		Pensao pensao = new Pensao();
+		pensao.setValor(1000.00D);
+		cadastroPensao.addPensao(pensao);
+		
+		Pensao pensao_2 = new Pensao();
+		pensao_2.setValor(2000.00D);
+		cadastroPensao.addPensao(pensao_2);
+		
+		assertEquals(3000.00D, cadastroPensao.getTotalPensao());
+	}
 
 }
