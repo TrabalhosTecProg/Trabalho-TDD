@@ -48,17 +48,6 @@ public class CriaCadastroPensaoTest {
         	return Arrays.asList(valorEsperado);
 
     }
-
-    @Test
-     public void CadastroContribuicaoTest() {
-    	pensao= new CadastrarPensao();
-    	for(Object[] c:pensoes) {
-    		//CadastrarPensao pensao= new CadastrarPensao();
-    		Pensao p = new Pensao((double)c[1]);
-    		pensao.addPensao(p);
-    	}
-    	assertEquals(valoresCorretos, pensao.getTotalPensao(),0);
-    }
 	
 	@Test
 	public void cadastrarPensao() {
