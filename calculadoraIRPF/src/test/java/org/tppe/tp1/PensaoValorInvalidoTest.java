@@ -19,5 +19,13 @@ public class PensaoValorInvalidoTest {
 		pensao.setValor(0.00D);
 	}
 
+	@Test(expected = ValorPensaoInvalidoException.class)
+	public void valorNegativo() throws ValorPensaoInvalidoException{
+		pensao.setValor(-5.00D);
+	}
 	
+	@Test(expected = ValorPensaoInvalidoException.class)
+	public void valorMaximo() throws ValorPensaoInvalidoException{
+		pensao.setValor(Double.MAX_VALUE);
+	}
 }
