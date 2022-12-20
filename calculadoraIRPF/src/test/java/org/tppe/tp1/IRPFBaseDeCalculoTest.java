@@ -18,7 +18,7 @@ import org.tppe.tp1.usecases.CadastrarPensao;
 import org.tppe.tp1.usecases.CadastrarRendimentosPF;
 import org.tppe.tp1.usecases.IRPF;
 
-public class IRPFTest {
+public class IRPFBaseDeCalculoTest {
 	
 	CadastrarContribuicao contribuicoes = new CadastrarContribuicao();
 	CadastrarDeducao deducoes = new CadastrarDeducao();
@@ -57,6 +57,22 @@ public class IRPFTest {
 		IRPF irpf = new IRPF();
 		Double baseDeCalculo = irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
 		assertEquals(4820.82d, baseDeCalculo, .01d);
+	}
+	
+	@Test
+	void testeBaseDeCalculo_2500() throws DescricaoEmBrancoException, ValorContribuicaoInvalidoException {
+		contribuicoes.add("INSS", 56.00);
+		deducoes.addDeducao(new Deducao("Previdencia Privada", 100.00));
+		pensao.addPensao(new Pensao(100.00));
+		dependentes.add(filho);
+		dependentes.add(filha);
+		
+		CadastrarRendimentosPF rendimentos = new CadastrarRendimentosPF();
+		rendimentos.add(new Rendimento("Salario", 2500));
+		
+		IRPF irpf = new IRPF();
+		Double baseDeCalculo = irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		assertEquals(1864.82d, baseDeCalculo, .01d);
 	}
 
 }
