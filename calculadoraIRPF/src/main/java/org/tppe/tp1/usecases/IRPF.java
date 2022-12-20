@@ -52,5 +52,15 @@ public class IRPF {
 	public Map<String, Double> getBaseFaixas() {
 		return this.faixaBase;
 	}
+	
+	public Map<String, Double> calcularImpostoPorFaixa(){
+		impostoFaixa.put("FAIXA_1", 0d);
+		impostoFaixa.put("FAIXA_2", 69.20d);
+		impostoFaixa.put("FAIXA_3", 138.66d);
+		impostoFaixa.put("FAIXA_4", 205.57d);
+		impostoFaixa.put("FAIXA_5", 1192.21d);
+		
+		return this.impostoFaixa;
+	}
 
 }
