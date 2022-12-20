@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
    <properties>
-    <jdk.version>19</jdk.version>
+    <jdk.version>11</jdk.version>
   </properties>
 
   <dependencies>

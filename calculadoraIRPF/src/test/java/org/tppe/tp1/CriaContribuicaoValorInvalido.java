@@ -1,7 +1,7 @@
 package org.tppe.tp1;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.tppe.tp1.entities.ContribuicaoPrevidenciaria;
