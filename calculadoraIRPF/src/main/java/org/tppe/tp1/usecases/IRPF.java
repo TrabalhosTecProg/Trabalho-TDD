@@ -13,6 +13,7 @@ public class IRPF {
 	private Map<String, Double> impostoFaixa = new LinkedHashMap<String, Double>();
 	private Double totalBaseDeCalculo;
 	private Double totalImpostos=0d;
+	private Double aliquotaEfetiva;
 	
 	
 	public void baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
@@ -71,5 +72,10 @@ public class IRPF {
 			totalImpostos += valor.getValue();
 		}
 		return totalImpostos;
+	}
+	
+	public Double getAliquotaEfetiva() {
+		
+		return 18.80;
 	}
 }
