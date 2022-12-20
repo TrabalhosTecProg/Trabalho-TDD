@@ -39,7 +39,8 @@ public class IRPFBaseDeCalculoTest {
 		rendimentos.add(new Rendimento("Salario", 5000d));
 		
 		IRPF irpf = new IRPF();
-		Double baseDeCalculo = irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		Double baseDeCalculo = irpf.getTotalBaseDeCalculo();
 		assertEquals(4020.82d, baseDeCalculo, .01d);
 	}
 	
@@ -55,7 +56,8 @@ public class IRPFBaseDeCalculoTest {
 		rendimentos.add(new Rendimento("Salario", 7000d));
 		
 		IRPF irpf = new IRPF();
-		Double baseDeCalculo = irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		Double baseDeCalculo = irpf.getTotalBaseDeCalculo();
 		assertEquals(4820.82d, baseDeCalculo, .01d);
 	}
 	
@@ -71,7 +73,8 @@ public class IRPFBaseDeCalculoTest {
 		rendimentos.add(new Rendimento("Salario", 2500));
 		
 		IRPF irpf = new IRPF();
-		Double baseDeCalculo = irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		Double baseDeCalculo = irpf.getTotalBaseDeCalculo();
 		assertEquals(1864.82d, baseDeCalculo, .01d);
 	}
 

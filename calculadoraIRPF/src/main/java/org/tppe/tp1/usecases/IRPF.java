@@ -14,7 +14,7 @@ public class IRPF {
 	private Double totalImpostos;
 	
 	
-	public Double baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
+	public void baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
 		Double somaRendimentos=0d;
 		for(Rendimento rendimento : rendimentos.getRendimentos()){
 		     somaRendimentos += rendimento.getValor();
@@ -27,7 +27,10 @@ public class IRPF {
 		
 		Double somaDeducoes = somaContribuicoes + somaOutrasDeducoes + somaPensoes + somaDependentes;
 		this.totalBaseDeCalculo = somaRendimentos - somaDeducoes;
+	}
 	
+	public Double getTotalBaseDeCalculo() {
 		return this.totalBaseDeCalculo;
 	}
+
 }
