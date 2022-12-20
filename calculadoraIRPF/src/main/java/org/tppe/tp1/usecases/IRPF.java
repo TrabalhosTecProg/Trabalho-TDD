@@ -12,7 +12,7 @@ public class IRPF {
 	private Map<String, Double> faixaBase = new LinkedHashMap<String, Double>();
 	private Map<String, Double> impostoFaixa = new LinkedHashMap<String, Double>();
 	private Double totalBaseDeCalculo;
-	private Double totalImpostos;
+	private Double totalImpostos=0d;
 	
 	
 	public void baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
@@ -65,5 +65,11 @@ public class IRPF {
 	public Map<String, Double> getImpostoPorFaixa() {
 		return this.impostoFaixa;
 	}
-
+	
+	public Double getTotalImposto() {
+		for(Map.Entry<String, Double> valor : impostoFaixa.entrySet()) {
+			totalImpostos += valor.getValue();
+		}
+		return totalImpostos;
+	}
 }

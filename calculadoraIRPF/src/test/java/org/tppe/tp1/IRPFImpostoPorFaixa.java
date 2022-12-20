@@ -22,6 +22,7 @@ public class IRPFImpostoPorFaixa {
 		assertEquals(1192.21,faixaBase.get("FAIXA_5"), .01d);
 	}
 	
+	@Test
 	public void calcularImpostoPorFaixa_2000() {
 		irpf.calcularBaseFaixas(2000d);
 		irpf.calcularImpostoPorFaixa();
@@ -34,6 +35,7 @@ public class IRPFImpostoPorFaixa {
 		assertEquals(0d,faixaBase.get("FAIXA_5"), .01d);
 	}
 	
+	@Test
 	public void calcularImpostoPorFaixa_4000() {
 		irpf.calcularBaseFaixas(4000d);
 		irpf.calcularImpostoPorFaixa();
@@ -45,5 +47,7 @@ public class IRPFImpostoPorFaixa {
 		assertEquals(56.01d,faixaBase.get("FAIXA_4"), .01d);
 		assertEquals(0d,faixaBase.get("FAIXA_5"), .01d);
 	}
+	
+	
 	
 }
