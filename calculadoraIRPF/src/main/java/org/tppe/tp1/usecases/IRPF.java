@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.tppe.tp1.entities.Rendimento;
 import org.tppe.tp1.entities.Dependente;
+import org.tppe.tp1.entities.FaixasDeBase;
 
 public class IRPF {
 	private Map<String, Double> faixaBase = new LinkedHashMap<String, Double>();
@@ -32,5 +33,15 @@ public class IRPF {
 	public Double getTotalBaseDeCalculo() {
 		return this.totalBaseDeCalculo;
 	}
-
+	
+	public Map<String, Double> calcularBaseFaixas(Double baseDeCalculo) {
+		faixaBase.put("FAIXA_1", 1903.98d);
+		faixaBase.put("FAIXA_2", 922.67d);
+		faixaBase.put("FAIXA_3", 924.40d);
+		faixaBase.put("FAIXA_4", 913.63d);
+		faixaBase.put("FAIXA_5", 4700.14d);
+		
+		 return this.faixaBase;    
+	}
+	
 }
