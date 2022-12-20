@@ -35,13 +35,18 @@ public class IRPF {
 	}
 	
 	public Map<String, Double> calcularBaseFaixas(Double baseDeCalculo) {
-		faixaBase.put("FAIXA_1", 1903.98d);
-		faixaBase.put("FAIXA_2", 922.67d);
-		faixaBase.put("FAIXA_3", 924.40d);
-		faixaBase.put("FAIXA_4", 913.63d);
-		faixaBase.put("FAIXA_5", 4700.14d);
+		FaixasDeBase base = new FaixasDeBase();
 		
-		 return this.faixaBase;    
+		for(Map.Entry<String, Double> faixa : base.getLimitesFaixaBase().entrySet()) {
+			if(baseDeCalculo > faixa.getValue()) {
+				faixaBase.put(faixa.getKey(), faixa.getValue());
+				baseDeCalculo -= faixa.getValue();
+			} else {
+				faixaBase.put(faixa.getKey(), baseDeCalculo);
+				baseDeCalculo = 0d;
+			}
+		}
+		return this.faixaBase;
 	}
-	
+
 }
