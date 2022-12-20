@@ -34,7 +34,7 @@ public class IRPF {
 		return this.totalBaseDeCalculo;
 	}
 	
-	public Map<String, Double> calcularBaseFaixas(Double baseDeCalculo) {
+	public void calcularBaseFaixas(Double baseDeCalculo) {
 		FaixasDeBase base = new FaixasDeBase();
 		
 		for(Map.Entry<String, Double> faixa : base.getLimitesFaixaBase().entrySet()) {
@@ -43,9 +43,13 @@ public class IRPF {
 				baseDeCalculo -= faixa.getValue();
 			} else {
 				faixaBase.put(faixa.getKey(), baseDeCalculo);
-				baseDeCalculo = 0d;
+				baseDeCalculo=0d;
 			}
 		}
+		     
+	}
+	
+	public Map<String, Double> getBaseFaixas() {
 		return this.faixaBase;
 	}
 
