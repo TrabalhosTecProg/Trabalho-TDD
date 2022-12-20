@@ -14,10 +14,10 @@ public class IRPF {
 	private Double totalBaseDeCalculo;
 	private Double totalImpostos=0d;
 	private Double aliquotaEfetiva;
+	private Double somaRendimentos=0d;
 	
 	
 	public void baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
-		Double somaRendimentos=0d;
 		for(Rendimento rendimento : rendimentos.getRendimentos()){
 		     somaRendimentos += rendimento.getValor();
 		}
@@ -75,7 +75,7 @@ public class IRPF {
 	}
 	
 	public Double getAliquotaEfetiva() {
-		
-		return 18.80;
+		aliquotaEfetiva = totalImpostos*100/somaRendimentos;
+		return this.aliquotaEfetiva;
 	}
 }
