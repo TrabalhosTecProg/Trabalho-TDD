@@ -63,7 +63,23 @@ public class IRPFAliquotaEfetiva {
 		
 		assertEquals(2.99, irpf.getAliquotaEfetiva(), .01d);
 	}
-	
+
+	@Test
+	public void calcularAliquotaEfetiva_1200() throws DescricaoEmBrancoException, ValorContribuicaoInvalidoException {
+		contribuicoes.add("INSS", 56.00);
+		deducoes.addDeducao(new Deducao("Previdencia Privada", 50d));
+		pensao.addPensao(new Pensao(70.00));
+		dependentes.add(filho);		
+		rendimentos.add(new Rendimento("Salario", 1200d));
+		
+		IRPF irpf = new IRPF();
+		irpf.baseDeCalculo(rendimentos, contribuicoes, deducoes, pensao, dependentes);
+		irpf.calcularBaseFaixas(irpf.getTotalBaseDeCalculo());
+		irpf.calcularImpostoPorFaixa();
+		irpf.getTotalImposto();
+		
+		assertEquals(0d, irpf.getAliquotaEfetiva(), .01d);
+	}
 }
 
 
