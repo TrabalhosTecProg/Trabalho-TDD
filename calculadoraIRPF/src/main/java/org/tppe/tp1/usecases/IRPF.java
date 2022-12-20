@@ -53,14 +53,16 @@ public class IRPF {
 		return this.faixaBase;
 	}
 	
-	public Map<String, Double> calcularImpostoPorFaixa(){
+	public void calcularImpostoPorFaixa(){
 		FaixasDeBase base = new FaixasDeBase();
 		
 		for(int i=1; i<=5; i++) {
 			Double imposto = base.getAliquotaFaixaBase().get("FAIXA_"+String.valueOf(i))/100 * faixaBase.get("FAIXA_"+String.valueOf(i));
-			System.out.println(imposto);
 			impostoFaixa.put("FAIXA_"+String.valueOf(i), imposto);
 		}
+	}
+	
+	public Map<String, Double> getImpostoPorFaixa() {
 		return this.impostoFaixa;
 	}
 
