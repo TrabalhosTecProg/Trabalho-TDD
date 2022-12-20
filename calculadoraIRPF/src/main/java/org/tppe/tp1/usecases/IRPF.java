@@ -15,6 +15,19 @@ public class IRPF {
 	
 	
 	public Double baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
-		return 4020.82d;
+		Double somaRendimentos=0d;
+		for(Rendimento rendimento : rendimentos.getRendimentos()){
+		     somaRendimentos += rendimento.getValor();
+		}
+		
+		Double somaContribuicoes=contribuicoes.getTotalContribuicao();
+		Double somaOutrasDeducoes=deducoes.getTotalDeducao();
+		Double somaPensoes=pensao.getTotalPensao();
+		Double somaDependentes=dependentes.size()*189.59d;
+		
+		Double somaDeducoes = somaContribuicoes + somaOutrasDeducoes + somaPensoes + somaDependentes;
+		this.totalBaseDeCalculo = somaRendimentos - somaDeducoes;
+	
+		return this.totalBaseDeCalculo;
 	}
 }
