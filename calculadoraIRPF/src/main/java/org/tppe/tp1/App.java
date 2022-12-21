@@ -4,27 +4,42 @@ import org.tppe.tp1.exceptions.*;
 import org.tppe.tp1.usecases.IRPF;
 
 import javax.swing.JOptionPane;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class App
 {
     private static final CalculadoraController calcIRPF = new CalculadoraController();
     private final static int EXIT_APP = 0;
+    private final static int IMPOSTO_NAS_FAIXAS = 7;
+    public final static int CADASTRO_RENDIMENTO = 1;
+    public final static int CADASTRO_PREVIDENCIA = 2;
+    public final static int CADASTRO_DEPENDENTE = 3;
+    public final static int CADASTRO_PENSAO = 4;
+    public final static int CADASTRO_OUTRAS_DEDUCOES = 5;
+    public final static int RESULTADO_TOTAL = 6;
+
+    public static Set<Integer> getOperationSet() {
+        return Set.of(CADASTRO_DEPENDENTE, CADASTRO_RENDIMENTO, CADASTRO_PENSAO,
+                CADASTRO_PREVIDENCIA, CADASTRO_OUTRAS_DEDUCOES, RESULTADO_TOTAL,
+                IMPOSTO_NAS_FAIXAS);
+    }
 
     public static void menu(int option) {
         switch (option) {
-            case CalculadoraController.CADASTRO_RENDIMENTO -> cadastrarRendimento();
-            case CalculadoraController.CADASTRO_DEPENDENTE -> cadastrarDependente();
-            case CalculadoraController.CADASTRO_PENSAO -> cadastrarPensao();
-            case CalculadoraController.CADASTRO_PREVIDENCIA -> cadastrarPrevidencia();
-            case CalculadoraController.CADASTRO_OUTRAS_DEDUCOES -> cadastrarDeducao();
-            case CalculadoraController.RESULTADO_TOTAL -> printTotal();
+            case CADASTRO_RENDIMENTO -> cadastrarRendimento();
+            case CADASTRO_DEPENDENTE -> cadastrarDependente();
+            case CADASTRO_PENSAO -> cadastrarPensao();
+            case CADASTRO_PREVIDENCIA -> cadastrarPrevidencia();
+            case CADASTRO_OUTRAS_DEDUCOES -> cadastrarDeducao();
+            case RESULTADO_TOTAL -> printTotal();
+            case IMPOSTO_NAS_FAIXAS -> showFaixasAliquotas();
             // To-do
             /**
              * showDependentes
              * showDeducoes
              * showRendimentos
-             * showFaixasAliquotas (Com aliquota total)
              */
         }
     }
@@ -37,7 +52,7 @@ public class App
         try {
             return Double.parseDouble(inputDialogString(message));
         } catch (NumberFormatException ex) {
-            return -1;
+            return -1.0;
         }
     }
 
@@ -61,7 +76,7 @@ public class App
 
     public static void cadastrarPrevidencia() {
         double value = inputDialogValue("Valor da previdência");
-        String desc = inputDialogString("Descrição da contribuição");
+        String desc = inputDialogString("Descrição da previdência");
         try {
            calcIRPF.addPrevidencia(desc, value);
         } catch(ValorContribuicaoInvalidoException | DescricaoEmBrancoException ex) {
@@ -70,8 +85,8 @@ public class App
     }
 
     public static void cadastrarDeducao() {
-        double value = inputDialogValue("Valor da previdência");
-        String desc = inputDialogString("Descrição da contribuição");
+        double value = inputDialogValue("Valor da dedução");
+        String desc = inputDialogString("Descrição da dedução");
         try {
             calcIRPF.addDeducao(desc, value);
         } catch(ValorDeducaoInvalidoException | DescricaoEmBrancoException ex) {
@@ -95,9 +110,25 @@ public class App
         // To-do all results
         IRPF irpf = calcIRPF.getResults();
         JOptionPane.showMessageDialog(null,
-                String.format("%.2f",irpf.getTotalImposto()).concat("\n")
-                        .concat(String.format("%.2f", irpf.getAliquotaEfetiva()))
+                "Valor total a pagar: ".concat(String.format("%.2f",irpf.getTotalImposto()).concat("\n"))
+                        .concat("Alíquota Efetiva: ").concat(String.format("%.2f", irpf.getAliquotaEfetiva()))
         );
+    }
+
+    public static void showFaixasAliquotas() {
+        IRPF irpf = calcIRPF.getResults();
+        Map<String, Double> faixas = irpf.getImpostoPorFaixa();
+        String response = "Valores a pagar por faixa: \n\n";
+        response += faixas.keySet().stream()
+                .map(key -> key.toLowerCase()
+                        .concat("  ")
+                        .concat(String.format(
+                                "%.2f",
+                                faixas.get(key)))
+                        .concat("\n"))
+                .collect(Collectors.joining("\n"));
+
+       JOptionPane.showMessageDialog(null, response);
     }
 
     public static String printOptions() {
@@ -112,6 +143,7 @@ public class App
                    4 - Cadastrar Pensão
                    5 - Cadastrar Outras Deduções
                    6 - Calcular valor de imposto total
+                   7 - Verificar imposto nas faixas
                 """;
     }
 
@@ -121,7 +153,7 @@ public class App
 
     public static void main( String[] args )
     {
-        Set<Integer> valids = CalculadoraController.getOperationSet();
+        Set<Integer> valids = getOperationSet();
         try {
             int option = Integer.parseInt(JOptionPane.showInputDialog(printOptions()));
             while(option != EXIT_APP) {
@@ -130,7 +162,7 @@ public class App
                 option = Integer.parseInt(JOptionPane.showInputDialog(printOptions()));
             }
         } catch(NumberFormatException ex) {
-            nonValidWarning("Insira um dos números informados (0 - 6)");
+            nonValidWarning("Insira um dos números informados (0 - " + getOperationSet().size() + ")");
             main(null);
         }
     }
