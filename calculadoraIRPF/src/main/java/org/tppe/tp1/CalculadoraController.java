@@ -9,15 +9,8 @@ import org.tppe.tp1.usecases.interfaces.CadastrarRendimento;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class CalculadoraController {
-    public final static int CADASTRO_RENDIMENTO = 1;
-    public final static int CADASTRO_PREVIDENCIA = 2;
-    public final static int CADASTRO_DEPENDENTE = 3;
-    public final static int CADASTRO_PENSAO = 4;
-    public final static int CADASTRO_OUTRAS_DEDUCOES = 5;
-    public final static int RESULTADO_TOTAL = 6;
 
     IRPF irpf;
     CadastrarPensao pensoes;
@@ -93,10 +86,5 @@ public class CalculadoraController {
         irpf.calcularBaseFaixas( this.irpf.getTotalBaseDeCalculo());
         irpf.calcularImpostoPorFaixa();
         return this.irpf;
-    }
-
-    public static Set<Integer> getOperationSet() {
-        return Set.of(CADASTRO_DEPENDENTE, CADASTRO_RENDIMENTO, CADASTRO_PENSAO,
-                CADASTRO_PREVIDENCIA, CADASTRO_OUTRAS_DEDUCOES, RESULTADO_TOTAL);
     }
 }
