@@ -7,6 +7,7 @@ import java.util.Map;
 import org.tppe.tp1.entities.Rendimento;
 import org.tppe.tp1.entities.Dependente;
 import org.tppe.tp1.entities.FaixasDeBase;
+import org.tppe.tp1.usecases.interfaces.CadastrarRendimento;
 
 public class IRPF {
 	private Map<String, Double> faixaBase = new LinkedHashMap<String, Double>();
@@ -17,7 +18,7 @@ public class IRPF {
 	private Double somaRendimentos=0d;
 	
 	
-	public void baseDeCalculo(CadastrarRendimentosPF rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
+	public void baseDeCalculo(CadastrarRendimento rendimentos, CadastrarContribuicao contribuicoes, CadastrarDeducao deducoes, CadastrarPensao pensao, List<Dependente> dependentes) {
 		for(Rendimento rendimento : rendimentos.getRendimentos()){
 		     somaRendimentos += rendimento.getValor();
 		}
