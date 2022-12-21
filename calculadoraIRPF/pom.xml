@@ -46,7 +46,7 @@
           <archive>
             <manifest>
               <!-- Jar file entry point -->
-              <mainClass>com.tppe.balanced.App</mainClass>
+              <mainClass>org.tppe.tp1.App</mainClass>
             </manifest>
           </archive>
         </configuration>
