@@ -9,8 +9,12 @@ public class Rendimento {
    
    public Rendimento() {};
    public Rendimento(String descricao, double valor){
-	   this.descricao=descricao;
-	   this.valor=valor;
+       try {
+           setDescricao(descricao);
+           setValor(valor);
+       } catch(DescricaoEmBrancoException | ValorRendimentoInvalidoException ex) {
+           System.out.println("Valores de rendimento e desrcição inválidos");
+       }
    }
 
     private Boolean isLimiteValido(Double valor) {
@@ -29,7 +33,7 @@ public class Rendimento {
         if (descricao.isBlank() || descricao.isEmpty() )
             throw new DescricaoEmBrancoException(
                 "Descrição não pode estar em branco!"); 
-       this.descricao = descricao;
+       else this.descricao = descricao;
    }
 
     public void setValor(double valor) throws ValorRendimentoInvalidoException {
