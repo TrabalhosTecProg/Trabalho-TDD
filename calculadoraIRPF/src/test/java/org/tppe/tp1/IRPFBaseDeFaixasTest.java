@@ -7,7 +7,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.tppe.tp1.usecases.IRPF;
 
-public class IRPFBaseDeFaixas {
+public class IRPFBaseDeFaixasTest {
 	IRPF irpf = new IRPF();
 	@Test
 	public void calcularBaseFaixas_9364_82() {

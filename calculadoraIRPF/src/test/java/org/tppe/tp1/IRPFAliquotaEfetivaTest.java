@@ -18,7 +18,7 @@ import org.tppe.tp1.usecases.CadastrarPensao;
 import org.tppe.tp1.usecases.CadastrarRendimentosPF;
 import org.tppe.tp1.usecases.IRPF;
 
-public class IRPFAliquotaEfetiva {
+public class IRPFAliquotaEfetivaTest {
 	CadastrarRendimentosPF rendimentos = new CadastrarRendimentosPF();
 	CadastrarContribuicao contribuicoes = new CadastrarContribuicao();
 	CadastrarDeducao deducoes = new CadastrarDeducao();

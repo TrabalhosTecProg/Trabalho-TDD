@@ -7,7 +7,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.tppe.tp1.usecases.IRPF;
 
-public class IRPFImpostoPorFaixa {
+public class IRPFImpostoPorFaixaTest {
 	IRPF irpf = new IRPF();
 	@Test
 	public void calcularImpostoPorFaixa_9000() {

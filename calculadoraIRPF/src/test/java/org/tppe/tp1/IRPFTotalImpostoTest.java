@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.tppe.tp1.usecases.IRPF;
 
-public class IRPFTotalImposto {
+public class IRPFTotalImpostoTest {
 	IRPF irpf = new IRPF();
 	
 	@Test
