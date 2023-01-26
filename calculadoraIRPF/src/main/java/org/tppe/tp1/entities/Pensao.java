@@ -1,10 +1,12 @@
 package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.ValorPensaoInvalidoException;
+import org.tppe.tp1.utils.Limite;
 
 public class Pensao {
 
 	private double valor;
+	private Limite limite = new Limite();
 	
 	public Pensao() {
 		super();
@@ -19,15 +21,10 @@ public class Pensao {
 	}
 	
 	public void setValor(double valor)  throws ValorPensaoInvalidoException{
-		if (!(isLimiteValido(valor))) {
+		if (!(limite.isLimiteValido(valor))) {
 	        throw new ValorPensaoInvalidoException(
 	                   "Valores negativos ou maiores do que INF são inválidos");
 	    }
 		this.valor = valor;
 	}
-	
-	private Boolean isLimiteValido(Double valor) {
-	       return (valor > 0.0D && valor < Double.MAX_VALUE);
-	}
-	
 }

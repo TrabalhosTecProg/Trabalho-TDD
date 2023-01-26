@@ -2,17 +2,14 @@ package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
 import org.tppe.tp1.exceptions.ValorContribuicaoInvalidoException;
-
+import org.tppe.tp1.utils.Limite;
 
 
 public class ContribuicaoPrevidenciaria {
 
 	private String descricao;	
 	private double valor ;
-	
-	  private Boolean isLimiteValido(Double valor) {
-	       return (valor > 0.0D && valor < Double.MAX_VALUE);
-	    }
+	private Limite limite = new Limite();
 	
 	public String getDescricao() {
 		return descricao;
@@ -35,7 +32,7 @@ public class ContribuicaoPrevidenciaria {
 		return valor;
 	}
 	public void setValor(double valor) throws ValorContribuicaoInvalidoException {
-		 if (isLimiteValido(valor)) {
+		 if (limite.isLimiteValido(valor)) {
 	           this.valor = valor;
 	       }
 	       else {
