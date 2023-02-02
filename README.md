@@ -11,3 +11,15 @@
 | 18/0113992  | Lorrany Oliveira |
 | 19/0032863  | Lorrayne Alves Cardozo |
 
+# TPPE02
+
+As seguintes refatorações foram sugeridas:
+
+|  **GRUPO**  |   **Operação de Refatoração**  |   **Local a ser refatorado**  |
+|:-----------:|:-------------------------------|:------------------------------|
+|      1      | Extrair método                 |Todas ocorrências isLimiteValido|
+|             |Substituir método p/ met. objeto|CadastrarContribuicao.add()    |
+|             | Extrair constante              |ContribuicaoPrevidenciaria, Deducao, Pensao, Rendimento.|
+
+
+Os commits se encontram na branch "refatoracao"
