@@ -23,10 +23,11 @@ A simplicidade foi explorada com a extração de método do isLimiteValido que a
 
 ![Refatoração de simplicidade 2](./assets/islimit2.png)
 
+<figcaption>Fonte: Nomes claros de variáveis </figcaption>
 
 ![nomes claros de variaveis](./assets/nomes_claros.png)
 
-<figcaption>Fonte: Nomes claros de variáveis </figcaption>
+
 
 
 
