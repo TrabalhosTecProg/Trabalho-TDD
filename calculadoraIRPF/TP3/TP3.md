@@ -14,15 +14,18 @@ Existem diversas operações que ajudam a atingir uma boa simplicidade do códig
 
 A simplicidade foi explorada com a extração de método do isLimiteValido que aparece em diversas classes, deixando o código mais fácil de entender e mais simples. A refatoração está disponível na branch 'refatoracao' referente ao TP2. Também explorada com o uso de nomes claros de variáveis.
 
+<figcaption>Método repetido em várias classes</figcaption>
+
 ![Refatoração de simplicidade 1](./assets/islimit1.png)
 
-<figcaption>Fonte: Método repetido em várias classes</figcaption>
+
+<figcaption> Extração do método em classe separada </figcaption>
 
 ![Refatoração de simplicidade 2](./assets/islimit2.png)
 
-<figcaption>Fonte: Extração do método em classe separada </figcaption>
 
 ![nomes claros de variaveis](./assets/nomes_claros.png)
+
 <figcaption>Fonte: Nomes claros de variáveis </figcaption>
 
 
