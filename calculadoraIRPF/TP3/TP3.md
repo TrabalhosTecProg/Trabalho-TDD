@@ -56,12 +56,17 @@ A elegância na refatoração refere-se à capacidade de reescrever ou reorganiz
 
 ## 3.2 Aplicação 
 
+A característica de elegência também foi aplicada no Trabalho 2, um exemplo foi na transformação de um método em método objeto, tornando mais fácil sua reutilização, organização do código, clareza e outros, sem alterar o comportamento do projeto. A refatoração desta característica também pode ser encontrada na branch 'refatoracao' referente ao TP2.
 
 
+<figcaption> Método na classe Cadastrar Contribuição </figcaption>
+
+![Método](./assets/metodo.jpeg)
 
 
+<figcaption> Transformação em método objeto </figcaption>
 
-
+![Método objeto](./assets/metodo_objeto.jpeg)
 
 
 
