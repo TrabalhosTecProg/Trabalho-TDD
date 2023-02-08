@@ -27,6 +27,11 @@ A simplicidade foi explorada com a extração de método do isLimiteValido que a
 
 ![nomes claros de variaveis](./assets/nomes_claros.png)
 
+# 2. Duplicidade
+
+## 2.1 Descrição
+
+## 2.2 Aplicação
 
 
 
