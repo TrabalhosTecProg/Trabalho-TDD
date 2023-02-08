@@ -83,7 +83,7 @@ No desenvolvimento dos trabalhos na disciplina, o grupo optou por utilizar a arq
 
 Um exemplo prático que utilizamos no decorrer dos trabalhos, pode ser analisado na imagem abaixo, em que as entidades são bem definidas e isoladas das funções de negócio, que ficam no diretório usecases, além do controller que faz a comunicação entre eles. Além do isolamento das exceptions e utils - para armazenar funções isoladas que podem ser úteis em várias partes do código.
 
-<a href="https://ibb.co/6yHCQhy"><img src="https://i.ibb.co/GdWSmwd/tppe-Screenshot-from-2023-02-08-00-29-04.png" alt="tppe-Screenshot-from-2023-02-08-00-29-04" border="0"></a><br /><a target='_blank' href='https://pt-br.imgbb.com/'>imagens de um site</a><br />
+<a href="https://ibb.co/6yHCQhy"><img src="https://i.ibb.co/GdWSmwd/tppe-Screenshot-from-2023-02-08-00-29-04.png" alt="tppe-Screenshot-from-2023-02-08-00-29-04" border="0"></a><br /><a target='_blank' href='https://pt-br.imgbb.com/'></a><br />
 
 
 # Referências
