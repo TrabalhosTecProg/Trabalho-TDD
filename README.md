@@ -19,7 +19,7 @@ Com base no funcionamento do cálculo do IRPF, o trabalho realizado pelo grupo c
 ### Como rodar o projeto
 Após clonar o repositório, é necessário abrir o arquivo localizado em `/calculadoraIRPF/src/main/java/org/tppe/tp1/App.java` e rodar com a IDE de preferência.
 
-![](./calculadoraIRPF/img/app.png)
+![](./img/app.png)
 
 ### Como rodar os testes
 Os testes estão localizados no diretório `/calculadoraIRPF/src/test/java/org/tppe/tp1`, e podem ser executados pela própria IDE, ou utilizando o Maven.
@@ -30,7 +30,7 @@ mvn test
 ```
 
 Por fim, o resultado dos testes:
-![](./calculadoraIRPF/img/testes.png)
+![](./img/testes.png)
 
 # ◻️ TP02
 
