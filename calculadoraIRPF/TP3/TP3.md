@@ -128,7 +128,209 @@ Os passos básicos para definir uma interface, como exposto por Pete Goodliffe (
 
 ## 6.2 Aplicação
 
+Um mal-cheiro que foi identificado foi a duplicação de código para as classes de entidade que provavelmente pertencem a um mesmo domínio, como exemplo as classes de dependentes e contribuição que são ambos tipos de Dedução.
 
+Para remediar, fizemos os seguintes passos:
+
+- Criação de uma interface `DeducaoI`:
+
+```java
+package org.tppe.tp1.entities.interfaces;
+
+import org.tppe.tp1.entities.TipoDeducao;
+import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
+
+public interface DeducaoI {
+    public TipoDeducao getType();
+    public String getDescricao();
+    public double getValor();
+    public void setDescricao(String descricao) throws DescricaoEmBrancoException;
+    public void setValor(double valor);
+    public void checkValor(double valor) throws ValorDeducaoInvalidoException;
+    Boolean isLimiteValido(Double valor);
+}
+```
+
+- Uma classe abstrata `DeducaoDefault` que implementa alguns dos métodos:
+
+```java
+package org.tppe.tp1.entities;
+
+import org.tppe.tp1.entities.interfaces.DeducaoI;
+import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
+
+public abstract class DeducaoDefault implements DeducaoI{
+    private String descricao;
+    private double valor ;
+
+    public DeducaoDefault() {}
+    public DeducaoDefault(String descricao, double valor) {
+        this.descricao= descricao;
+        this.valor= valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+    public void setDescricao(String descricao) throws DescricaoEmBrancoException{
+        if (descricao==null || descricao.isBlank())
+            throw new DescricaoEmBrancoException(
+                    "Descricao de deducao não pode estar em branco!");
+        this.descricao= descricao;
+    }
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Boolean isLimiteValido(Double valor) {
+        return (valor > 0.0D && valor < Double.MAX_VALUE);
+    }
+}
+```
+
+- A classes `Deducao`, `ContribuicaoPrevidenciaria`, `Dependentes` e `Pensao` ficaram da seguinte maneira:
+
+```java
+// Classe Deducao
+package org.tppe.tp1.entities;
+
+import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
+
+public class Deducao extends DeducaoDefault {
+	private String descricao;	
+	private double valor ;
+
+	public Deducao() {}
+	public Deducao(String descricao, double valor) {
+		super(descricao, valor);
+	}
+	public TipoDeducao getType() {return TipoDeducao.OUTRO;}
+
+	public void checkValor(double valor)  throws ValorDeducaoInvalidoException{
+		if (!(isLimiteValido(valor))) {
+	        throw new ValorDeducaoInvalidoException(
+	                   "Valores negativos ou maiores do que INF são inválidos");
+	    }
+		super.setValor(valor);
+	}
+}
+
+//Classe 
+package org.tppe.tp1.entities;
+
+import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
+import org.tppe.tp1.exceptions.ValorContribuicaoInvalidoException;
+
+
+
+public class ContribuicaoPrevidenciaria extends DeducaoDefault{
+
+	public ContribuicaoPrevidenciaria() {
+		super();
+	}
+	public ContribuicaoPrevidenciaria(String descricao, double valor) {
+		super(descricao, valor);
+	}
+
+	public TipoDeducao getType() {
+		return TipoDeducao.PREVIDENCIA;
+	}
+	public void checkValor(double valor) throws ValorContribuicaoInvalidoException {
+		 if (isLimiteValido(valor)) {
+	           super.setValor(valor);
+	       }
+	       else {
+	           throw new ValorContribuicaoInvalidoException(
+	                   "Valores negativos ou maiores do que INF são inválidos");
+	       }
+	}
+}
+
+// Dependente
+package org.tppe.tp1.entities;
+import java.time.LocalDate;
+
+import org.tppe.tp1.exceptions.NomeEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
+
+
+public class Dependente extends DeducaoDefault{
+	
+	private String nome;	
+	private LocalDate data ;
+	public static final double DEDUCAO_DEPENDENTE = 189.59d;
+	
+	public Dependente() {}
+	public Dependente(String nome, LocalDate data) {
+		super("Dependente", DEDUCAO_DEPENDENTE);
+		this.nome= nome;
+		this.data= data;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) throws NomeEmBrancoException {
+		 if (nome==null||nome.isEmpty() || nome.isBlank()) 
+	            throw new NomeEmBrancoException(
+	                "Nome de dependente não pode estar em branco!"); 
+		 this.nome= nome;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+	public void checkValor(double valor) throws ValorDeducaoInvalidoException {
+		if (valor != DEDUCAO_DEPENDENTE) {
+			throw new ValorDeducaoInvalidoException(
+					"Valores negativos ou maiores do que INF são inválidos");
+		}
+	}
+	public TipoDeducao getType() {return TipoDeducao.DEPENDENTE;}
+	
+}
+
+// Pensao
+package org.tppe.tp1.entities;
+
+import org.tppe.tp1.exceptions.ValorPensaoInvalidoException;
+
+public class Pensao extends DeducaoDefault {
+	
+	public Pensao() {
+		super();
+	}
+	
+	public Pensao(double valor) {
+		super("Pensão", valor);
+	}
+	public void checkValor(double valor)  throws ValorPensaoInvalidoException{
+		if (!(isLimiteValido(valor))) {
+			throw new ValorPensaoInvalidoException(
+					"Valores negativos ou maiores do que INF são inválidos");
+		}
+		super.setValor(valor);
+	}
+	
+	public TipoDeducao getType() { return TipoDeducao.OUTRO; }
+	
+}
+
+```
+
+Com essas refatorações, ocorreu uma diminuição da duplicação de código e a definição de uma abstração que agora pode ser usada para cadastrar e calcular deduções, independentemente do tipo delas.
 
 # Referências
 
