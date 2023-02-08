@@ -2,10 +2,12 @@ package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.DescricaoEmBrancoException;
 import org.tppe.tp1.exceptions.ValorRendimentoInvalidoException;
+import org.tppe.tp1.utils.Limite;
 
 public class Rendimento {
    private String descricao;
    private double valor;
+    private Limite limite = new Limite();
    
    public Rendimento() {};
    public Rendimento(String descricao, double valor){
@@ -16,10 +18,6 @@ public class Rendimento {
            System.out.println("Valores de rendimento e desrcição inválidos");
        }
    }
-
-    private Boolean isLimiteValido(Double valor) {
-       return (valor > 0.0D && valor < Double.MAX_VALUE);
-    }
 
     public String getDescricao() {
         return descricao;
@@ -37,7 +35,7 @@ public class Rendimento {
    }
 
     public void setValor(double valor) throws ValorRendimentoInvalidoException {
-       if (isLimiteValido(valor)) {
+       if (limite.isLimiteValido(valor)) {
            this.valor = valor;
        }
        else {

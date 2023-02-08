@@ -11,5 +11,4 @@ public interface DeducaoI {
     public void setDescricao(String descricao) throws DescricaoEmBrancoException;
     public void setValor(double valor);
     public void checkValor(double valor) throws ValorDeducaoInvalidoException;
-    Boolean isLimiteValido(Double valor);
 }
