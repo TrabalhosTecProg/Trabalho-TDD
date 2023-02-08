@@ -1,7 +1,7 @@
 # Técnicas de Programação para Plataformas Emergentes - TPPE
 
 ## Alunos
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRUPO 01| |
+|GRUPO 01| |
 | - | - |
 |**Matrícula** | **Aluno** |
 | 16/0000572  | Adrian Soares Lopes |
@@ -22,7 +22,7 @@ Após clonar o repositório, é necessário abrir o arquivo localizado em `/calc
 ![](./calculadoraIRPF/img/app.png)
 
 ### Como rodar os testes
-Os testes estão localizados no diretório `/calculadoraIRPF/src/test/java/org/tppe/tp1`, e podem ser executados pela própria IDE, ou utiizando o Maven.
+Os testes estão localizados no diretório `/calculadoraIRPF/src/test/java/org/tppe/tp1`, e podem ser executados pela própria IDE, ou utilizando o Maven.
 
 Para rodá-los utilizando o Maven, é necessário entrar na pasta `/calculadoraIRPF`, onde se encontra o arquivo `pom.xml`, e executar o comando no terminal:
 ```bash
@@ -48,4 +48,4 @@ Os commits se encontram na branch [refatoracao](https://github.com/TrabalhosTecP
 
 # ◻️ TP03
 
-Foram escolhidas 5 características de um bom projeto de software para o trabalho, que pode ser encontrado no [arquivo](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/TP3/calculadoraIRPF/TP3/TP3.md) localizado em `/calculadoraIRPF/TP3/TP3.md` na branch [TP3](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/TP3/calculadoraIRPF/TP3).
+Foram escolhidas 6 características de um bom projeto de software para o trabalho, que pode ser encontrado no [arquivo](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/TP3/calculadoraIRPF/TP3/TP3.md) localizado em `/calculadoraIRPF/TP3/TP3.md` na branch [TP3](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/TP3/calculadoraIRPF/TP3).
