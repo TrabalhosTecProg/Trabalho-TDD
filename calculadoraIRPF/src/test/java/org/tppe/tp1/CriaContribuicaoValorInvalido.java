@@ -1,7 +1,6 @@
 package org.tppe.tp1;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Test;
 import org.tppe.tp1.entities.ContribuicaoPrevidenciaria;
@@ -23,7 +22,7 @@ public class CriaContribuicaoValorInvalido {
 	    @Test(expected=ValorContribuicaoInvalidoException.class)
 	    public void verificaValoresINvalidosSet() throws  ValorContribuicaoInvalidoException {
 	    	ContribuicaoPrevidenciaria contribuicao = new ContribuicaoPrevidenciaria();
-	    	contribuicao.setValor( -300.58D);
+	    	contribuicao.checkValor( -300.58D);
 	    }
 
 }

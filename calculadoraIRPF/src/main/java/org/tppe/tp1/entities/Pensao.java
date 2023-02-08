@@ -2,32 +2,23 @@ package org.tppe.tp1.entities;
 
 import org.tppe.tp1.exceptions.ValorPensaoInvalidoException;
 
-public class Pensao {
-
-	private double valor;
+public class Pensao extends DeducaoDefault {
 	
 	public Pensao() {
 		super();
 	}
 	
 	public Pensao(double valor) {
-		this.valor = valor;
+		super("Pensão", valor);
 	}
-	
-	public double getValor() {
-		return valor;
-	}
-	
-	public void setValor(double valor)  throws ValorPensaoInvalidoException{
+	public void checkValor(double valor)  throws ValorPensaoInvalidoException{
 		if (!(isLimiteValido(valor))) {
-	        throw new ValorPensaoInvalidoException(
-	                   "Valores negativos ou maiores do que INF são inválidos");
-	    }
-		this.valor = valor;
+			throw new ValorPensaoInvalidoException(
+					"Valores negativos ou maiores do que INF são inválidos");
+		}
+		super.setValor(valor);
 	}
 	
-	private Boolean isLimiteValido(Double valor) {
-	       return (valor > 0.0D && valor < Double.MAX_VALUE);
-	}
+	public TipoDeducao getType() { return TipoDeducao.OUTRO; }
 	
 }

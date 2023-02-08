@@ -16,16 +16,16 @@ public class PensaoValorInvalidoTest {
 
 	@Test(expected = ValorPensaoInvalidoException.class)
 	public void valorMinimo() throws ValorPensaoInvalidoException{
-		pensao.setValor(0.00D);
+		pensao.checkValor(0.00D);
 	}
 
 	@Test(expected = ValorPensaoInvalidoException.class)
 	public void valorNegativo() throws ValorPensaoInvalidoException{
-		pensao.setValor(-5.00D);
+		pensao.checkValor(-5.00D);
 	}
 	
 	@Test(expected = ValorPensaoInvalidoException.class)
 	public void valorMaximo() throws ValorPensaoInvalidoException{
-		pensao.setValor(Double.MAX_VALUE);
+		pensao.checkValor(Double.MAX_VALUE);
 	}
 }

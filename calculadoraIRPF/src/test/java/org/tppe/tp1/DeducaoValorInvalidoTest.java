@@ -1,7 +1,5 @@
 package org.tppe.tp1;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.tppe.tp1.entities.Deducao;
@@ -18,17 +16,17 @@ public class DeducaoValorInvalidoTest {
 
 	@Test(expected = ValorDeducaoInvalidoException.class)
 	public void valorMinimo() throws ValorDeducaoInvalidoException{
-	     deducao.setValor(0.00D);
+	     deducao.checkValor(0.00D);
 	}
 
 	@Test(expected = ValorDeducaoInvalidoException.class)
 	public void valorNegativo() throws ValorDeducaoInvalidoException{
-		deducao.setValor(-5.00D); 
+		deducao.checkValor(-5.00D);
     }
 	
 	@Test(expected = ValorDeducaoInvalidoException.class)
 	public void valorMaximo() throws ValorDeducaoInvalidoException{
-		deducao.setValor(Double.MAX_VALUE); 
+		deducao.checkValor(Double.MAX_VALUE);
     }
 
 }

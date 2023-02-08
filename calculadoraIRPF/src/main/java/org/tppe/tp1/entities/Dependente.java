@@ -2,15 +2,18 @@ package org.tppe.tp1.entities;
 import java.time.LocalDate;
 
 import org.tppe.tp1.exceptions.NomeEmBrancoException;
+import org.tppe.tp1.exceptions.ValorDeducaoInvalidoException;
 
 
-public class Dependente {
+public class Dependente extends DeducaoDefault{
 	
 	private String nome;	
 	private LocalDate data ;
+	public static final double DEDUCAO_DEPENDENTE = 189.59d;
 	
 	public Dependente() {}
 	public Dependente(String nome, LocalDate data) {
+		super("Dependente", DEDUCAO_DEPENDENTE);
 		this.nome= nome;
 		this.data= data;
 	}
@@ -33,5 +36,12 @@ public class Dependente {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+	public void checkValor(double valor) throws ValorDeducaoInvalidoException {
+		if (valor != DEDUCAO_DEPENDENTE) {
+			throw new ValorDeducaoInvalidoException(
+					"Valores negativos ou maiores do que INF são inválidos");
+		}
+	}
+	public TipoDeducao getType() {return TipoDeducao.DEPENDENTE;}
 	
 }

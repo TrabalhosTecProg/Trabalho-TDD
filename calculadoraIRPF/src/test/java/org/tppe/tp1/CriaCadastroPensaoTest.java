@@ -54,7 +54,7 @@ public class CriaCadastroPensaoTest {
 	public void cadastrarPensao() throws ValorPensaoInvalidoException {
 		for(Object[] p:pensoes) {
 			Pensao temp_p = new Pensao();
-			temp_p.setValor((double)p[1]);
+			temp_p.checkValor((double)p[1]);
 			pensao.addPensao(temp_p);
     	}
     	assertEquals(valoresCorretos, pensao.getTotalPensao(), 0);

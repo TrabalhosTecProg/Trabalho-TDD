@@ -58,7 +58,7 @@ public class CriaCadastroDeducaoTest {
     	for(Object[] c:deducoes) {
     		Deducao d = new Deducao();
     		d.setDescricao((String)c[0]);
-    		d.setValor((double)c[1]);
+    		d.checkValor((double)c[1]);
     		
     		deducao.addDeducao(d);
     	}

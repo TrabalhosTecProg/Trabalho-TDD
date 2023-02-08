@@ -1,7 +1,5 @@
 package org.tppe.tp1;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -40,7 +38,7 @@ public class DeducaoValorInvalidoParametrizadoTest {
 
 	    @Test(expected = ValorDeducaoInvalidoException.class)
 	    public void verificarValorInvalido() throws ValorDeducaoInvalidoException {
-	    	deducao.setValor(this.valorDeducaoInvalido);
+	    	deducao.checkValor(this.valorDeducaoInvalido);
 	    }
 
 }
