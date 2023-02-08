@@ -3,6 +3,7 @@ As 5 características escolhidas pelo grupo foram:
 1. Simplicidade;
 2. Ausência de Duplicidade;
 3. Elegância;
+4. Modularidade;
 
 # 1. Simplicidade
 ## 1.1 Descrição
@@ -69,11 +70,20 @@ A característica de elegência também foi aplicada no Trabalho 2, um exemplo f
 ![Método objeto](./assets/metodo_objeto.jpeg)
 
 
+# 4. Modularidade
 
+## 4.1 Descrição
+Modularidade é uma prática importante em um bom projeto de software visto que ajuda a manter o código organizado, legível e de fácil manutenção. Uma boa modularidade consiste em dividir o projeto em módulos ou componentes independentes, cada um com sua própria responsabilidade e interface pública bem definida. Isso tem vários efeitos positivos no código, tais como: fácil entendimento e navegação pelo código, aumentando a rastreabilidade; melhor coesão, facilitando a divisão do projeto e, consequentemente, a manutenção do mesmo; baixo acoplamento, visto que manter os módulos independentes faz com que evite dependências excessivas entre eles; reutilização, já que módulos bem projetados podem ser facilmente reutilizados economizando tempo e esforço.
 
+Em resumo, a boa modularidade pode levar a um código mais organizado, claro, coeso, facilmente mantido e escalável, tornando o desenvolvimento de software mais eficiente e eficaz.
 
+## 4.2 Aplicação 
 
+No desenvolvimento dos trabalhos na disciplina, o grupo optou por utilizar a arquitetura Clean Architecture, que é uma arquitetura de projeto bem modularizada, em que basicamente há várias camadas de modelagem. A arquitetura busca separar a lógica de negócios da lógica estrutural, aumentando a independência e a coesão entre camadas, permitindo que a mudança não afete a lógica de negócio,visto que também possui baixo acoplamento. 
 
+Um exemplo prático que utilizamos no decorrer dos trabalhos, pode ser analisado na imagem abaixo, em que as entidades são bem definidas e isoladas das funções de negócio, que ficam no diretório usecases, além do controller que faz a comunicação entre eles. Além do isolamento das exceptions e utils - para armazenar funções isoladas que podem ser úteis em várias partes do código.
+
+<a href="https://ibb.co/6yHCQhy"><img src="https://i.ibb.co/GdWSmwd/tppe-Screenshot-from-2023-02-08-00-29-04.png" alt="tppe-Screenshot-from-2023-02-08-00-29-04" border="0"></a><br /><a target='_blank' href='https://pt-br.imgbb.com/'>imagens de um site</a><br />
 
 
 # Referências
