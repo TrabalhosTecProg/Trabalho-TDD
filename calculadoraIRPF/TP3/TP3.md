@@ -1,7 +1,7 @@
 As 5 características escolhidas pelo grupo foram:
 
 1. Simplicidade;
-
+2. Ausência de Duplicidade;
 
 # 1. Simplicidade
 ## 1.1 Descrição
@@ -27,14 +27,25 @@ A simplicidade foi explorada com a extração de método do isLimiteValido que a
 
 ![nomes claros de variaveis](./assets/nomes_claros.png)
 
-# 2. Duplicidade
+# 2. Ausência de Duplicidade
 
 ## 2.1 Descrição
 
+Código duplicado é uma prática de programação ruim que ocorre quando o mesmo código é repetido várias vezes no mesmo programa. Isso torna o código confuso, difícil de manter e sujeito a erros, porque toda vez que o código precisa ser alterado, ele precisa ser alterado em todas as instâncias em que ocorre. Além disso, a duplicação de código aumenta o tamanho do arquivo e afeta negativamente o desempenho do programa. Com isso, a solução para a duplicidade de código é refatorar o código para criar funções ou classes reutilizáveis ​​e apropriadas, ou seja, a ausência de duplicidades.
+
 ## 2.2 Aplicação
 
+A ausência de duplicidade foi exercida e explorada no trabalho 2 com a extração do código isLimite, que aparecia como método em diversas classes, sendo extraida e transformada em um classe. A refatoração desta característica pode ser encontrada na branch 'refatoracao' referente ao TP2.
 
 
+<figcaption>Método repetido em várias classes</figcaption>
+
+![Refatoração de ausência de duplicidade](./assets/islimit1.png)
+
+
+<figcaption> Extração do método em classe separada </figcaption>
+
+![Refatoração de ausência de duplicidade](./assets/islimit2.png)
 
 
 
