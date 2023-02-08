@@ -1,9 +1,11 @@
-As 5 características escolhidas pelo grupo foram:
+As 6 características escolhidas pelo grupo foram:
 
 1. Simplicidade;
 2. Ausência de Duplicidade;
 3. Elegância;
 4. Modularidade;
+5. Boa Documentação;
+6. Boa Interface.
 
 # 1. Simplicidade
 ## 1.1 Descrição
@@ -85,6 +87,26 @@ Um exemplo prático que utilizamos no decorrer dos trabalhos, pode ser analisado
 
 <a href="https://ibb.co/6yHCQhy"><img src="https://i.ibb.co/GdWSmwd/tppe-Screenshot-from-2023-02-08-00-29-04.png" alt="tppe-Screenshot-from-2023-02-08-00-29-04" border="0"></a><br /><a target='_blank' href='https://pt-br.imgbb.com/'></a><br />
 
+# 5. Boa Documentação
+
+## 5.1. Descrição
+
+Uma documentação de software deve ser uma descrição precisa sobre o sistema, apresentando importantes informações como seus objetivos e utilização, facilitando tanto o uso da equipe atual quanto de possíveis futuros membros. Consiste em um conjunto de manuais gerais e técnicos que torna o gerenciamento do projeto mais organizado, eficiente e até mesmo mais rápido.
+
+Pode-se dizer que a documentação do projeto é algo vivo, pois é aperfeiçoada e adaptada ao longo do tempo, do mesmo jeito que a própria colaboração e produtividade da equipe se adéqua durante o ciclo de vida de uma aplicação. 
+
+Em termos gerais, documentações precisam ter três elementos:
+
+* contextualização de problema: informa cada obstáculo durante o desenvolvimento e em que situação ele ocorreu;
+* contextualização de solução: explica as modificações feitas em processos ou no código que corrigiram o problema;
+* detalhes técnicos: familiarizam o responsável por aquela parte do desenvolvimento sobre como, quando e por que aquela intervenção foi realizada.
+
+
+É possível fazer uma relação com o mau-cheiro de código *comentários* definido por Fowler, pois com uma boa documentação os comentários são reduzidos e se tornam menos necessários para um bom entendimento do sistema.
+
+
+## 5.2. Aplicação
+A utilização das boas práticas de documentação citadas podem ser claramente visualizadas no [Readme](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/main/README.md) do projeto, encontrado na página principal do [repositório](https://github.com/TrabalhosTecProg/Trabalho-TDD).
 
 # Referências
 
