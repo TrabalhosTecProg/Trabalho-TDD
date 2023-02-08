@@ -108,6 +108,30 @@ Em termos gerais, documentações precisam ter três elementos:
 ## 5.2. Aplicação
 A utilização das boas práticas de documentação citadas podem ser claramente visualizadas no [Readme](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/main/README.md) do projeto, encontrado na página principal do [repositório](https://github.com/TrabalhosTecProg/Trabalho-TDD).
 
+# 6 - Boas Interfaces
+
+## 6.1 Descrição
+
+Uma outra característica importante para um bom design de código é o uso de **Boas Interfaces**. Significa uma maneira de definir uma forma de comunicação padronizada para utilização de um módulo do programa ou sistema. A interface é um dos fatores que determina a qualidade do seu código visto por fora já que é a única maneira de acessar o módulo externamente, ou seja, uma API (*Application Programming Interface*).  Isso permite uma série de características como:
+
+- **Particionamento**:  Uma separação das funcionalidades de cliente e implementador;
+- **Abstração**: A interface funciona como uma caixa preta, permitindo usar as funcionalidades sem o necessário entendimento de como foi implementado;
+- **Compressão**: Associada a uma boa abstração. Te permite fazer mais com menos linhas de código, por exemplo, eliminando duplicações;
+- **Substituibilidade**: Contratos de interface iguais permitem que possa ser trocados um pelo outro, mesmo que suas implementações sejam completamente diferentes.
+
+Os passos básicos para definir uma interface, como exposto por Pete Goodliffe (2006) são:
+
+- Identificar o cliente e o que ele quer;
+- Identificar o implementador e o que ele pode fazer;
+- Inferir o tipo de interface. Existem tipos de interface como de rede, de classes e de funções;
+- Determinar a natureza da operação. As características a cima podem ser um guia para determinar, bem como padrões de design e arquitetura.
+
+## 6.2 Aplicação
+
+
+
 # Referências
 
 ABNT NBR ISO/IEC 9126-1:2001. Informática - Avaliação de qualidade de software - Parte 1: Modelo de avaliação. Brasília: ABNT, 2001.
+
+Code Craft : The Practice of Writing Excellent Code, No Starch Press, Incorporated, 2006. ProQuest Ebook Central
