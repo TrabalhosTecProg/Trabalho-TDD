@@ -2,6 +2,7 @@ As 5 características escolhidas pelo grupo foram:
 
 1. Simplicidade;
 2. Ausência de Duplicidade;
+3. Elegância;
 
 # 1. Simplicidade
 ## 1.1 Descrição
@@ -46,6 +47,15 @@ A ausência de duplicidade foi exercida e explorada no trabalho 2 com a extraç�
 <figcaption> Extração do método em classe separada </figcaption>
 
 ![Refatoração de ausência de duplicidade](./assets/islimit2.png)
+
+# 3. Elegência
+
+## 3.1 Descrição
+
+A elegância na refatoração refere-se à capacidade de reescrever ou reorganizar o código de maneira clara, concisa e eficiente, sem alterar o comportamento pretendido do programa. Isso é importante porque ajuda a tornar o código fácil de entender, manter e estender, o que melhora a qualidade e a confiabilidade do programa. A refatoração otimizada também pode melhorar o desempenho e a eficiência do código porque a eliminação da duplicação de código, a simplificação da lógica e o aproveitamento de funções e classes existentes ajudam a evitar o desperdício de recursos de computação.
+
+## 3.2 Aplicação 
+
 
 
 
