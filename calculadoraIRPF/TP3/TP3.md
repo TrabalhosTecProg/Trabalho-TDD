@@ -5,7 +5,7 @@ As 6 características escolhidas pelo grupo foram:
 3. Elegância;
 4. Modularidade;
 5. Boa Documentação;
-6. Boa Interface.
+6. Boas Interfaces.
 
 # 1. Simplicidade
 ## 1.1 Descrição
