@@ -48,4 +48,4 @@ Os commits se encontram na branch [refatoracao](https://github.com/TrabalhosTecP
 
 # ◻️ TP03
 
-Foram escolhidas 6 características de um bom projeto de software para o trabalho, que pode ser encontrado no [arquivo](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/TP3/calculadoraIRPF/TP3/TP3.md) localizado em `/calculadoraIRPF/TP3/TP3.md` .
+Foram escolhidas 6 características de um bom projeto de software para o trabalho, que pode ser encontrado no [arquivo](https://github.com/TrabalhosTecProg/Trabalho-TDD/blob/main/calculadoraIRPF/TP3/TP3.md) localizado em `/calculadoraIRPF/TP3/TP3.md` .
