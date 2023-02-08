@@ -39,7 +39,7 @@ public class PensaoValorInvalidoParametrizadoTest {
 
 	    @Test(expected = ValorPensaoInvalidoException.class)
 	    public void verificarValorInvalido() throws ValorPensaoInvalidoException {
-	    	pensao.setValor(this.valorPensaoInvalido);
+	    	pensao.checkValor(this.valorPensaoInvalido);
 	    }
 
 }

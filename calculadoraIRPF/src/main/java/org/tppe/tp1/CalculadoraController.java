@@ -49,7 +49,7 @@ public class CalculadoraController {
     public void addPensao(double value) throws ValorPensaoInvalidoException {
         Pensao p = new Pensao();
         try {
-            p.setValor(value);
+            p.checkValor(value);
             this.pensoes.addPensao(p);
         } catch(ValorPensaoInvalidoException ex) {
             throw ex;
@@ -70,7 +70,7 @@ public class CalculadoraController {
         Deducao d = new Deducao();
         try {
             d.setDescricao(descricao);
-            d.setValor(value);
+            d.checkValor(value);
             this.deducoes.addDeducao(d);
         } catch(ValorDeducaoInvalidoException | DescricaoEmBrancoException ex) {
             throw ex;
